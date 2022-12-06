@@ -3,7 +3,7 @@ package hawl;
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
 
-public class Hawlucha extends Waterfall {
+public class Hawlucha extends Pokemon{
 
 
     public Hawlucha(String name, int lvl) {
