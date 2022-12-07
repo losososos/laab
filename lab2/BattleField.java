@@ -8,7 +8,7 @@ import ru.ifmo.se.pokemon.Battle;
 import ru.ifmo.se.pokemon.Pokemon;
 
 
-public class BattleField extends Eevee {
+public class BattleField{
     public static void main(String[] args) {
         Battle b = new Battle();
         Pokemon p1 = new Hawlucha("a", 30);
