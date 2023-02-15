@@ -5,53 +5,56 @@ import Exception.TimeException;
 
 import java.util.Objects;
 public class TimeOfAction {
-    private static int time;
-    private TimeType timeType;
 
-
-    public void calculateTimeType(TimeType timeType, int time) {
-        switch (timeType) {
-            case HOUR:
-                if (time <= 0 || time > 438000) {
-                    throw new TimeException();
-                }
-                break;
-            case DAY:
-                if (time <= 0 || time > 18250) {
-                    throw new TimeException();
-                }
-                break;
-            case MONTH:
-                if (time <= 0 || time > 600) {
-                    throw new TimeException();
-                }
-                break;
-            case YEAR:
-                if (time <= 0 || time > 50) {
-                    throw new TimeException();
-                }
-                break;
-        }
-        System.out.println(time + " " + timeType.getName() + " later");
-        setTime(time);
-        setTimeType(timeType);
+    public static class TimeManager{
+        private static int time;
+        private static TimeType timeType;
+            public void timeCheck(TimeType timeType, int time){
+                switch (timeType) {
+                        case HOUR:
+                            if (time <= 0 || time > 438000) {
+                                throw new TimeException();
+                            }
+                            break;
+                        case DAY:
+                            if (time <= 0 || time > 18250) {
+                                throw new TimeException();
+                            }
+                            break;
+                        case MONTH:
+                            if (time <= 0 || time > 600) {
+                                throw new TimeException();
+                            }
+                            break;
+                        case YEAR:
+                            if (time <= 0 || time > 50) {
+                                throw new TimeException();
+                            }
+                            break;
+                    }
+                setTime(time);
+                setTimeType(timeType);
+            }
+    }
+    public void timeWriter() {
+        System.out.println(TimeManager.time + " " + TimeManager.timeType.getName() + " later");
     }
 
 
     public static int getTime() {
-        return time;
+        return TimeManager.time;
     }
 
     public static void setTime(int time) {
-        TimeOfAction.time = time;
+        TimeOfAction.TimeManager.time = time;
     }
 
-    public TimeType getTimeType() {
-        return timeType;
+    public static TimeType getTimeType() {
+        return TimeManager.timeType;
     }
 
-    public void setTimeType(TimeType timeType) {
-        this.timeType = timeType;
+    public static void setTimeType(TimeType timeType) {
+        TimeManager.timeType = timeType;
     }
 
     @Override
@@ -64,7 +67,7 @@ public class TimeOfAction {
     @Override
     public boolean equals(Object i) {
         TimeOfAction timeOfAction = (TimeOfAction) i;
-        return (getTime() == timeOfAction.getTime() && getTimeType() == timeOfAction.getTimeType())
+        return (getTime() == getTime() && getTimeType() == timeOfAction.getTimeType())
                 && (this == i);
     }
 
