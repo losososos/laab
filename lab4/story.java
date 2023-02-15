@@ -16,7 +16,10 @@ public class story {
         Anybody anybody = new Anybody();
         Things dreams = new Things(new Object[]{Thing.ROCKET, Thing.MOON, Thing.MOONGUYS, Thing.OTHER});
         Telegram telegram = new Telegram(Thing.WRITTEN3);
-        TimeOfAction timeManager = new TimeOfAction();
+        TimeOfAction timeWriter = new TimeOfAction();
+        TimeOfAction.TimeManager timeManager = new TimeOfAction.TimeManager();
+
+        timeManager.timeCheck(TimeType.MONTH, 2);
 
 
         znaika.compound(Action.DREAM, Thing.SO);
@@ -44,7 +47,7 @@ public class story {
         anybody.compound(Action.UNDERSTAND, Thing.NONE);
         znaika.move(Place.SUNCITY);
 
-        timeManager.calculateTimeType(TimeType.MONTH, 2);
+        timeWriter.timeWriter();
 
         znaika.action(Action.SEND, Thing.TELEGRAM, Place.NONE, Time.NONE);
 
